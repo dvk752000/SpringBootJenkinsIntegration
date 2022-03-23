@@ -96,8 +96,7 @@ pipeline {
 			steps{
 				script{
 					def isURLRunning = sh(script: "curl -s --retry-connrefused --retry 10 --retry-delay 20 http://192.168.0.101:8081/locations || true", returnStdout: true).trim()
-					if(isURLRunning)
-						def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
+					def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
 		}
