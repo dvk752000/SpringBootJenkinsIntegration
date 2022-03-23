@@ -27,3 +27,6 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+processResources {
+    expand project.properties
+}
