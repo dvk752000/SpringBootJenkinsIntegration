@@ -95,7 +95,19 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
+					waitUntil {
+				        script {
+				            try {
+				                httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
+				                return (response.status == 200)
+				            }
+				            catch (exception) {
+				                 return false
+				            }
+				        }
+				    }
+				
+					//def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
 		}
