@@ -83,12 +83,12 @@ pipeline {
 				
 				sh 'docker volume create "${imageVolume}"'
 				
-				sh '''docker run -d  -p 8081:8081--name ${imageName} 
-																	-v ${imageVolume}
-																	--network jendoc 
-																	-e spring.datasource.url=${hsqlSource}
-																	-e dataToBeUpdated="${dataToBeUpdated}" 
-																	"$user"/${imageName}'''.replaceAll("\n", " ") 
+				sh '''docker run -d  -p 8081:8081 --name ${imageName} 
+												-v ${imageVolume} 
+												--network jendoc 
+												-e spring.datasource.url=${hsqlSource} 
+												-e dataToBeUpdated="${dataToBeUpdated}" 
+												"$user"/${imageName}'''.replaceAll("\n", " ") 
 			}
 		}
 		
