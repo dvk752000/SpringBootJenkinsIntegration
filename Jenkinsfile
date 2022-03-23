@@ -95,7 +95,7 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					sh 'curl -s -o /dev/null -w "%{http_code}" -retry 100 http://192.168.0.101:8081/locations'
+					sh 'curl -s -o /dev/null -w "%{http_code}" -retry 100 http://192.168.0.101:8081/locations || true'
 					//def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
