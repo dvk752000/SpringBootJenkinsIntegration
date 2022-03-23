@@ -97,7 +97,7 @@ pipeline {
 				script{
 					def isURLRunning = sh(script: "curl -s --retry-connrefused --retry 10 --retry-delay 20 http://192.168.0.101:8081/locations || true", returnStdout: true).trim()
 
-					def response = httpRequest authentication: 'jenkinssbCredentials', httpMode:POST , url: "http://192.168.0.101:8081/locations/${primaryKey}/${updatedValue}"
+					def response = httpRequest authentication: 'jenkinssbCredentials', httpMode:'POST' , url: "http://192.168.0.101:8081/locations/${primaryKey}/${updatedValue}"
 				}
 			}
 		}
