@@ -98,7 +98,7 @@ pipeline {
 					timeout(5) {
 					    waitUntil {
 					       script {
-					         def r = sh script: 'wget -q http://192.168.0.101:8081/locations', returnStdout: true
+					         def r = sh script: '/usr/local/bin/wget -q http://192.168.0.101:8081/locations', returnStdout: true
 					         return (r == 0);
 					       }
 					    }
