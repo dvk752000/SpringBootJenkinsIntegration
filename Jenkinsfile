@@ -95,7 +95,7 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					sh 'curl -I "www.google.com'
+					sh 'curl -I "www.google.com"'
 					//def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
