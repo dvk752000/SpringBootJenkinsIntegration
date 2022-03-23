@@ -3,6 +3,7 @@ pipeline {
     
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+		HTTP_CREDENTIALS=credentials('jenkinssbCredentials')
 	}
 
     stages {
@@ -93,8 +94,8 @@ pipeline {
 		
 		stage('Update the Database'){
 			steps{
-				
-				httpRequest "${httpUserName}:${httpPassword}@localhost:8081/locations"
+				sh "Now Executing the URL: ${HTTP_CREDENTIALS_USR}:${HTTP_CREDENTIALS_PSW}@localhost:8081/locations"
+				httpRequest "${HTTP_CREDENTIALS_USR}:${HTTP_CREDENTIALS_PSW}@localhost:8081/locations"
 				
 			}
 		}
