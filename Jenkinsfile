@@ -95,7 +95,7 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				sh "Now Executing the URL: ${HTTP_CREDENTIALS_USR} @localhost:8081/locations"
-				httpRequest "http://${HTTP_CREDENTIALS_USR}:${HTTP_CREDENTIALS_PSW}@localhost:8081/locations"
+				httpRequest "http://localhost:8081/locations"
 			}
 		}
     }
