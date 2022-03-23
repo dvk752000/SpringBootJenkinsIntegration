@@ -95,19 +95,16 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					waitUntil {
-				        script {
-				            try {
-				                httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
-				                return (response.status == 200)
-				            }
-				            catch (exception) {
-				                 return false
-				            }
-				        }
-				    }
+					timeout(5) {
+					    waitUntil {
+					       script {
+					         def r = sh script: 'wget -q http://192.168.0.101:8081/locations', returnStdout: true
+					         return (r == 0);
+					       }
+					    }
+					}
 				
-					//def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
+					def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
 		}
