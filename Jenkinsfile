@@ -95,7 +95,7 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					def isURLRunning = sh(script: "curl -s --retry-connrefused --retry 10 --retry-delay 6 $url", returnStdout: true).trim()
+					def isURLRunning = sh(script: "curl -s --retry-connrefused --retry 10 --retry-delay 6 http://192.168.0.101:8081/locations", returnStdout: true).trim()
 					if(isURLRunning)
 						def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
