@@ -94,7 +94,7 @@ pipeline {
 		
 		stage('Update the Database'){
 			steps{
-				httpRequest "http://www.google.com"
+				httpRequest "http://${HTTP_CREDENTIALS_USR}:${HTTP_CREDENTIALS_PSW}@localhost:8081/locations"
 			}
 		}
     }
