@@ -7,7 +7,7 @@ pipeline {
 	}
 
     stages {
-    
+    /*
     	stage('Clean') {
             steps {
                 
@@ -91,12 +91,12 @@ pipeline {
 												"$user"/${imageName}'''.replaceAll("\n", " ") 
 			}
 		}
-		
+		*/
 		stage('Update the Database'){
 			steps{
 				script{
-					sh 'sleep 25'
-					def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
+					sh 'curl -I "www.google.com'
+					//def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
 		}
