@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --build-arg  JAR_FILE=build/libs/*.jar -t "$user"/${imageName} .'
+                sh 'docker build --build-arg  JAR_FILE=build/libs/*.jar -t ${imageName} .'
             }
         }
         
@@ -77,7 +77,7 @@ pipeline {
 		stage('Push and Run') {
 
 			steps {
-				sh 'docker image tag "$user"/${imageName} "$user"/${imageName}'
+				sh 'docker image tag ${imageName} "$user"/${imageName}'
 				
 				sh 'docker push "$user"/${imageName}'
 				
