@@ -83,7 +83,7 @@ pipeline {
 				
 				sh 'docker volume create "${imageVolume}"'
 				
-				sh '''docker run -d  -p ${portToRun}:${portToRun} --name ${imageName} 
+				sh '''docker run -d  -p 8081:8081--name ${imageName} 
 																	-v ${imageVolume}
 																	--network jendoc 
 																	-e spring.datasource.url=${hsqlSource}
