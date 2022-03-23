@@ -95,7 +95,7 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://localhost:8081/locations"
+					def response = httpRequest "http://localhost:8081/locations"
 				}
 			}
 		}
