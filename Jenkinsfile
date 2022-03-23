@@ -95,9 +95,9 @@ pipeline {
 		stage('Update the Database'){
 			steps{
 				script{
-					sh "curl -s --retry-connrefused --retry 10 --retry-delay 6 http://192.168.0.101:8081/locations"
-					//sh 'curl -s -o /dev/null -w "%{http_code}" -retry 100 http://192.168.0.101:8081/locations || true'
-					//def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
+					def isURLRunning(sh(script: "curl -s --retry-connrefused --retry 10 --retry-delay 6 $url", returnStdout: true).trim())
+					if(isURLRunning)
+						def response = httpRequest authentication: 'jenkinssbCredentials', url: "http://192.168.0.101:8081/locations"
 				}
 			}
 		}
