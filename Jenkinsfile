@@ -7,7 +7,7 @@ pipeline {
 	}
 
     stages {
-    /*
+    
     	stage('Clean') {
             steps {
                 
@@ -91,7 +91,7 @@ pipeline {
 												"$user"/${imageName}'''.replaceAll("\n", " ") 
 			}
 		}
-		*/
+		
 		stage('Update the Database'){
 			steps{
 				script{
