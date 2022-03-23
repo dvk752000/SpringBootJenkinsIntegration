@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --build-arg  JAR_FILE=build/libs/*.jar -t ${imageName} .'
+                sh 'docker build --build-arg  JAR_FILE=build/libs/*.jar -t "$user"/${imageName} .'
             }
         }
         
@@ -77,7 +77,7 @@ pipeline {
 		stage('Push and Run') {
 
 			steps {
-				sh 'docker image tag ${imageName} "$user"/${imageName}'
+				sh 'docker image tag "$user"/${imageName} "$user"/${imageName}'
 				
 				sh 'docker push "$user"/${imageName}'
 				
@@ -105,7 +105,7 @@ pipeline {
 }
 
 /*
-def executeHttpGet(apiUrl, token){
+def executeHttpGet(Url, token){
     echo "Executing GitHub API Call, ${apiUrl}"
     def response = httpRequest url: apiUrl, authentication: "${token}"
     if (response.status != 200) {

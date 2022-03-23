@@ -7,7 +7,10 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "spring.datasource")
 public class DataSourceConfiguration {
 	private String url;
+	
+	//@javax.validation.constraints.NotBlank
 	private String username;
+	
 	private String password;
 	
 	public String getUrl() {
