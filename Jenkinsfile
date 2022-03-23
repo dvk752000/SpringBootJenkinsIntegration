@@ -103,3 +103,17 @@ pipeline {
 		}
     }
 }
+
+/*
+def executeHttpGet(apiUrl, token){
+    echo "Executing GitHub API Call, ${apiUrl}"
+    def response = httpRequest url: apiUrl, authentication: "${token}"
+    if (response.status != 200) {
+        echo "API call failed, ${apiUrl}"
+        error("Unable to execute API call, StatusCode=${response.status}, Content=${response.content}")
+    } else {
+        echo "API call success, ${apiUrl}"
+        return response
+    }
+}
+*/
