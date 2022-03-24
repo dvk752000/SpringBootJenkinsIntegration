@@ -89,7 +89,7 @@ pipeline {
 												-e spring.datasource.url=${hsqlSource} 
 												-e dataToBeUpdated="${dataToBeUpdated}" 
 												"$user"/${imageName}'''.replaceAll("\n", " ") 
-				sh 'sleep 10'
+				sh 'sleep 15'
 			}
 		}
 		
