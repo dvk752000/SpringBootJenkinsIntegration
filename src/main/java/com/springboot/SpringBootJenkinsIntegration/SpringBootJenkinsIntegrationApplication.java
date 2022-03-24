@@ -20,7 +20,6 @@ public class SpringBootJenkinsIntegrationApplication implements CommandLineRunne
 	public void run(String...args){
         System.out.println("Application.properties has these values for spring.datasource: " + dataSourceConfiguration);
         System.out.println();
-        
     	System.out.println(applicationConfiguration);
     }
 
